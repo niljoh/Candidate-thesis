@@ -5,7 +5,7 @@ library(ggplot2)
 eesSetup("C:/Users/johan/OneDrive - Linköpings universitet/Genetik/EcoEvoSim-main")
 
 # Define the ecological model (functions as Julia code strings).
-# Sigmoid growth curve + therapy targeting high z (bigger than 0.4) and reducing the growth with 80%
+# Sigmoid growth curve + therapy targeting high z 
 model <- lotkaVolterra(
   growthFn = "z -> ((tanh(sum(z .- 0.5) / 0.3) + 1) / 2 - (tanh((0 - 0.5)/0.3) + 1)/2) *(z[1] < 0.4)",
   kernelFn = "(zi, zj) -> -(tanh((zi[1] - zj[1]) / 0.15) + 1) / 2"
