@@ -24,12 +24,11 @@ for (s in sigma_values) {
 # Plot
 ggplot(df, aes(x = trait_distance, y = competition, color = sigma)) +
   geom_line(linewidth = 1) +
-  scale_color_manual(values = c(
-    "σ = 0.1" = "plum",
-    "σ = 0.4" = "grey46",
-    "σ = 0.7" = "plum4")) +
-
+  scale_color_viridis_d(
+    option = "D",
+    name = expression(sigma),
+    labels = c("σ = 0.1", "σ = 0.4", "σ = 0.7"),
+    breaks = c(0.1, 0.4, 0.7)) +
   labs(x = expression(z[i] - z[j]), y = expression(a(z[i], z[j])), color = expression(sigma)) +
   theme_bw()
-
 
