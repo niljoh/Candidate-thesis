@@ -27,16 +27,15 @@ df <- data.frame(
 # Plot
 ggplot(df, aes(x = z, y = growth, color = type)) +
   geom_line(linewidth = 1) +
-  scale_color_manual(values = c(
-    "Baseline (No therapy)" = "gray46",
-    "Threshold therapy" = "plum",
-    "Sigmoid therapy" = "plum4"
-  )) +
+  scale_color_viridis_d(
+    option = "D",
+    name = "Model",
+    labels = c(
+      "Baseline (No therapy)",
+      "Threshold therapy",
+      "Sigmoid therapy"))+
   labs(
     x = "Trait value",
     y = "Growth rate",
-    color = "Model"
-    #title = "Comparison of growth functions under different therapy strategies"
   ) +
   theme_bw()
-
